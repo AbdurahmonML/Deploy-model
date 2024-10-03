@@ -8,14 +8,14 @@ app = FastAPI()
 model = joblib.load('models/model.pkl')
 
 class InputData(BaseModel):
-    MedInc: float  # Median Income in block group
-    HouseAge: float  # Median house age in block group
-    AveRooms: float  # Average number of rooms per household
-    AveOccup: float  # Average number of household members
-    Latitude: float  # Latitude of the block group
-    Longitude: float  # Longitude of the block group
-    Population: float  # Population in the block group
-    Households: float  # Number of households in the block group
+    MedInc: float  
+    HouseAge: float  
+    AveRooms: float  
+    AveOccup: float  
+    Latitude: float 
+    Longitude: float  
+    Population: float  
+    Households: float  
 
 @app.post("/predict/")
 async def predict(data: InputData):
