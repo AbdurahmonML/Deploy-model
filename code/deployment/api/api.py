@@ -20,7 +20,6 @@ class InputData(BaseModel):
 @app.post("/predict/")
 async def predict(data: InputData):
     try:
-        # Prepare the input for the model
         input_data = [[
             data.MedInc, data.HouseAge, data.AveRooms, data.AveOccup,
             data.Latitude, data.Longitude, data.Population, data.Households
