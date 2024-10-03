@@ -6,10 +6,8 @@ import streamlit as st
 import requests
 import json
 
-# Set the title of the app
 st.title("ML Model Prediction App")
 
-# Create input fields for user data
 st.write("Please provide the following details to get a prediction:")
 
 MedInc = st.number_input("Median Income in block group", min_value=0.0, step=0.01)
@@ -21,9 +19,7 @@ Longitude = st.number_input("Longitude of the block group", step=0.01)
 Population = st.number_input("Population in the block group", min_value=0.0, step=1.0)
 Households = st.number_input("Number of households in the block group", min_value=0.0, step=1.0)
 
-# When the user clicks 'Predict'
 if st.button("Predict"):
-    # Prepare the payload for the request
     input_data = {
         "MedInc": MedInc,
         "HouseAge": HouseAge,
@@ -35,7 +31,6 @@ if st.button("Predict"):
         "Households": Households
     }
 
-    # Send the request to FastAPI
     try:
         response = requests.post("http://backend:8001/predict", data=json.dumps(input_data), headers={"Content-Type": "application/json"})
         
