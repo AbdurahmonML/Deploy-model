@@ -34,7 +34,6 @@ if st.button("Predict"):
     try:
         response = requests.post("http://backend:8001/predict", data=json.dumps(input_data), headers={"Content-Type": "application/json"})
         
-        # Check if the request was successful
         if response.status_code == 200:
             prediction = response.json().get("prediction")
             st.success(f"Prediction: {prediction}")
